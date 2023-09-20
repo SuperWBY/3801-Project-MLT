@@ -1,0 +1,9 @@
+{
+    "Cube": {
+        "name": "Cube",
+        "summary": "A normal cube",
+        "food": "Tim Hortons",
+        "floors": 5
+    }
+    
+}
