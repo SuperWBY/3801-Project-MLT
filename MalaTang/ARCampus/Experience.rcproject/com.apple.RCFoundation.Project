@@ -10,89 +10,7 @@
                 "name" : "surface"
               },
               "behaviors" : [
-                {
-                  "__content" : [
-                    {
-                      "accessibility" : {
-                        "__content" : [
-                          {
-                            "isEnabled" : false
-                          }
-                        ],
-                        "__version" : 1
-                      },
-                      "actionGroups" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurations" : [
-                                {
-                                  "__content" : [
-                                    {
-                                      "configurationBox" : {
-                                        "configuration" : {
-                                          "axis" : [
-                                            0,
-                                            0,
-                                            1
-                                          ],
-                                          "direction" : "clockwise",
-                                          "duration" : 1,
-                                          "iterations" : 1,
-                                          "target" : [
 
-                                          ]
-                                        },
-                                        "name" : {
-                                          "type" : "spin"
-                                        }
-                                      },
-                                      "identifier" : "7B8C279E-1DBF-4EF9-9732-FBF36A683DD0",
-                                      "isEnabled" : true
-                                    }
-                                  ],
-                                  "__version" : 1
-                                }
-                              ],
-                              "identifier" : "E7195EDD-1262-43D1-8797-A29451804F1B",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
-                      ],
-                      "color" : [
-                        0.49019607901573181,
-                        0.7450980544090271,
-                        0.94901961088180542,
-                        1
-                      ],
-                      "identifier" : "6E1CD276-E15D-4C4D-AE63-A78F8F522A8F",
-                      "isEnabled" : true,
-                      "isLooping" : true,
-                      "isModal" : false,
-                      "name" : "SpinAtStart",
-                      "triggers" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurationBox" : {
-                                "configuration" : {
-
-                                },
-                                "name" : "start"
-                              },
-                              "identifier" : "4B1ECC28-07DE-4577-B7A6-20FE08460F8C",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
-                      ]
-                    }
-                  ],
-                  "__version" : 3
-                }
               ],
               "gravity" : [
                 0,
@@ -363,7 +281,7 @@
                           "material",
                           {
                             "typeName" : "String",
-                            "value" : "standard"
+                            "value" : "bronzeDark"
                           }
                         ],
                         [
@@ -394,17 +312,24 @@
                           }
                         ],
                         [
+                          "isAccessibilityEnabled",
+                          {
+                            "typeName" : "Bool",
+                            "value" : true
+                          }
+                        ],
+                        [
                           "rigidBody-enabled",
                           {
                             "typeName" : "Bool",
-                            "value" : false
+                            "value" : true
                           }
                         ],
                         [
                           "rigidBody-motionType",
                           {
                             "typeName" : "REMotionType",
-                            "value" : "static"
+                            "value" : "dynamic"
                           }
                         ]
                       ]
@@ -423,9 +348,9 @@
                         0,
                         0.4129461944103241,
                         0,
-                        0.052178464829921722,
-                        0.075403027236461639,
-                        0.11699814349412918,
+                        0.052178479731082916,
+                        0.26684755086898804,
+                        -0.034874621778726578,
                         1
                       ]
                     }
@@ -572,26 +497,47 @@
                             "typeName" : "UUID",
                             "value" : "B4EA9A2D-B484-440F-87D3-FFDB6D5CB149"
                           }
+                        ],
+                        [
+                          "isAccessibilityEnabled",
+                          {
+                            "typeName" : "Bool",
+                            "value" : false
+                          }
+                        ],
+                        [
+                          "rigidBody-enabled",
+                          {
+                            "typeName" : "Bool",
+                            "value" : true
+                          }
+                        ],
+                        [
+                          "rigidBody-motionType",
+                          {
+                            "typeName" : "REMotionType",
+                            "value" : "dynamic"
+                          }
                         ]
                       ]
                     },
                     "transform" : {
                       "matrix" : [
-                        1,
+                        1.7189743518829346,
                         0,
                         0,
                         0,
                         0,
-                        1,
+                        1.7189743518829346,
                         0,
                         0,
                         0,
                         0,
-                        1,
+                        1.7189743518829346,
                         0,
-                        0.15748526155948639,
-                        0.14186544716358185,
-                        0.021332880482077599,
+                        0.037545524537563324,
+                        0.16843707859516144,
+                        -0.046212293207645416,
                         1
                       ]
                     }
@@ -849,21 +795,21 @@
               "title" : "Square",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.44370698928833008,
-                  4.8428773880004883e-08,
-                  -0.89617186784744263,
+                  0.61008232831954956,
+                  2.260036957579814e-08,
+                  -0.79233801364898682,
                   0,
-                  -0.084469921886920929,
-                  0.99554789066314697,
-                  -0.041822180151939392,
+                  -0.21596641838550568,
+                  0.96213644742965698,
+                  -0.16628916561603546,
                   0,
-                  0.89218205213546753,
-                  0.094256415963172913,
-                  0.44173160195350647,
+                  0.76233714818954468,
+                  0.27256849408149719,
+                  0.58698248863220215,
                   0,
-                  1.9898030757904053,
-                  0.42926400899887085,
-                  0.37694096565246582,
+                  1.668969988822937,
+                  0.84730076789855957,
+                  1.3945591449737549,
                   1
                 ],
                 "sceneTransform" : [

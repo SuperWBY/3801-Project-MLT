@@ -319,7 +319,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = thisarproject;
+				PRODUCT_BUNDLE_IDENTIFIER = MalaTang;
 				PRODUCT_NAME = MalaTang;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,7 +338,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = thisarproject;
+				PRODUCT_BUNDLE_IDENTIFIER = MalaTang;
 				PRODUCT_NAME = MalaTang;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

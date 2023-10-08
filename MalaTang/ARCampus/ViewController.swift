@@ -7,6 +7,9 @@ class ViewController: UIViewController {
     /// The view that displays the real world with virtual objects (i.e. Augmented Reality)
     @IBOutlet var arView: ARView!
     
+    var selectedEntity: Entity? // 用于跟踪用户选择的实体
+    var originalPosition: SIMD3<Float> = .zero // 用于保存模型的原始位置
+    
     /// The view that provides instructions for getting a horizontal plane
     @IBOutlet weak var coachingOverlayView: ARCoachingOverlayView!
     
@@ -31,6 +34,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupView()
     }
     
@@ -58,6 +62,8 @@ class ViewController: UIViewController {
         
         /// Instructions for getting a nice horizontal plane
         presentCoachingOverlay()
+        
+        addPanGestureRecognizer()
     }
     
     @IBAction func onTap(_ sender: UITapGestureRecognizer) {
@@ -256,4 +262,42 @@ class ViewController: UIViewController {
         /// Save buildings
         buildings = loadedBuildings
     }
+    
+    func addLongPressGestureRecognizer() {
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+            arView.addGestureRecognizer(longPressGesture)
+        }
+        
+        // 添加一个拖动手势识别器
+        func addPanGestureRecognizer() {
+            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+            arView.addGestureRecognizer(panGesture)
+        }
+        
+        @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+            if gesture.state == .began {
+                // 用户开始长按，检查是否选中了实体
+                let tapLocation = gesture.location(in: arView)
+                if let tappedEntity = arView.entity(at: tapLocation) {
+                    selectedEntity = tappedEntity
+                    originalPosition = selectedEntity?.position ?? .zero
+                    print("Selected entity: \(selectedEntity)")
+                }
+            }
+        }
+        
+        @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
+            print("Pan gesture detected")
+            guard let selectedEntity = selectedEntity else { return }
+            
+            if gesture.state == .changed {
+                // 用户正在拖动，移动实体
+                let translation = gesture.translation(in: arView)
+                let newPosition = originalPosition + SIMD3<Float>(x: Float(translation.x), y: Float(translation.y), z: 0)
+                selectedEntity.position = newPosition
+            } else if gesture.state == .ended {
+                // 长按结束，清除选择的实体
+                self.selectedEntity = nil
+            }
+        }
 }
