@@ -1,0 +1,20 @@
+{
+    "AT": {
+        "name": "Gear",
+        "summary": "It is a gear",
+        "source": "Downloaded model",
+        "material": "Rubber"
+    },
+    "SA": {
+        "name": "Sphere",
+        "summary": "It is a sphere.",
+        "source": "Preload model",
+        "material": "Matte Paint"
+    },
+    "PA": {
+        "name": "PC",
+        "summary": "It is a laptop",
+        "source": "Scanned model",
+        "material": "Plastic"
+    }
+}

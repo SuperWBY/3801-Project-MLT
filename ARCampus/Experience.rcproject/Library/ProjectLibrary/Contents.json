@@ -1,0 +1,27 @@
+[
+  {
+    "libraryIdentifier" : "e105e754898c13a325a507f6a8ff860e",
+    "format" : "image",
+    "displayName" : "HP.png"
+  },
+  {
+    "libraryIdentifier" : "f02729feac49d54993b318c8caba13bb",
+    "format" : "image",
+    "displayName" : "RB.png"
+  },
+  {
+    "libraryIdentifier" : "7e106dbbf6a3efa0e14ed5d5e3e79014",
+    "format" : "model",
+    "displayName" : "laptop.usdz"
+  },
+  {
+    "libraryIdentifier" : "e100b8db0ece777f489a1880ee6c5a37",
+    "format" : "model",
+    "displayName" : "BattleSpaceship.usdz"
+  },
+  {
+    "libraryIdentifier" : "fa489cf66ec469ec2d243d485df55f06",
+    "format" : "model",
+    "displayName" : "Gear1.2048.usdz"
+  }
+]
