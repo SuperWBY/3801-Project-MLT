@@ -24,16 +24,22 @@ In the context of today's rapid technological advancement, mixed reality technol
 
 6.Open the application and allow **using camara** to scan the workspace
 
-
 ## Screenshots about the application
 
-<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
+<center>
+<figure>
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true" alt="Example Image" width="50%" style="display:block;">
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_3.jpg?raw=true" alt="Example Image" width="50%" style="display:block;">
+ </figure>
+</center>
+
+
+
+
 
 
 
 <img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_6.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
 
 
-
-<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_3.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
 
