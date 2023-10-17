@@ -11,7 +11,7 @@ In the context of today's rapid technological advancement, mixed reality technol
 * Cable to connect the mac to the iOS device
 
 ## Guidelines for use
- 
+
 1.Download whole codebase from [this link](https://github.com/SuperWBY/3801-Project-MLT).
 
 2.Use Xcode to open the whole folder.
@@ -24,11 +24,22 @@ In the context of today's rapid technological advancement, mixed reality technol
 
 6.Open the application and allow **using camara** to scan the workspace
 
-
 ## Screenshots about the application
 
-<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_1.jpg?raw=true" width="100">
-<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true">
-<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true" width="400">
+<center>
+<figure>
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true" alt="Example Image" width="50%" style="display:block;">
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_3.jpg?raw=true" alt="Example Image" width="50%" style="display:block;">
+ </figure>
+</center>
+
+
+
+
+
+
+
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_6.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
+
 
 
