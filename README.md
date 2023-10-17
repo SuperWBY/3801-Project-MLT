@@ -29,10 +29,11 @@ In the context of today's rapid technological advancement, mixed reality technol
 
 <img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
 
+https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_6.jpg?raw=true
 
 
-![example_6](/Users/wangruizhi/Desktop/UQIT_CS/2023 Semester 2/DECO3801/3801-Project-MLT/Screenshots/example_6.jpg)
 
 
 
-<img src="/Users/wangruizhi/Desktop/UQIT_CS/2023 Semester 2/DECO3801/3801-Project-MLT/Screenshots/example_3.jpg" alt="example_3" style="zoom:50%;" />
+
+
