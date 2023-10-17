@@ -29,11 +29,11 @@ In the context of today's rapid technological advancement, mixed reality technol
 
 <img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
 
-https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_6.jpg?raw=true
+
+
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_6.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
 
 
 
-
-
-
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_3.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
 
