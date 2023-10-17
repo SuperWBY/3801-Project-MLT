@@ -1,35 +1,38 @@
-![ARCampus](https://github.com/ElisaKazan/ARCampus/blob/master/banner.png)
+# MalaTang
 
-# ARCampus
+## Project Description
 
-An interactive AR diorama of Carleton University for iOS using Reality Composer and RealityKit. This app was built for my honours project at Carleton University during Fall 2019.
+In the context of today's rapid technological advancement, mixed reality technology has opened a new gateway connecting the virtual world to the real one. Our project crafts an advanced digital collaborative workspace within this realm for educational settings. This not only allows users to integrate their real environment and objects with virtual functionalities but also offers them an interactive stage.
 
-<img src="https://github.com/ElisaKazan/ARCampus/blob/master/Demos/demo-1.gif" width="300" title="ARCampus Demo">
+## Prerequisites
 
-When a building is tapped, information about the building will display as an overlay view and a spinning arrow will point to the building that was selected.
+* Xcode 15.0 (or later)
+* iOS device running iOS 13.2 (or later)
+* Cable to connect the mac to the iOS device
 
-<img src="https://github.com/ElisaKazan/ARCampus/blob/master/Screenshots/example-2.PNG" width="300" title="ARCampus HP Screenshot">
+## Guidelines for use
+ 
+1.Download whole codebase from [this link](https://github.com/SuperWBY/3801-Project-MLT).
 
-## Project Abstract
+2.Use Xcode to open the whole folder.
 
-From video games to online shopping, augmented reality is changing the way people interact with technology. During their WWDC conference in 2019, Apple released Reality Composer and the RealityKit framework, making it easier for developers to create convincing interactive virtual experiences that blend in seamlessly with the real world. This project explores the challenges and benefits of creating an AR experience for iOS using RealityKit and Reality Composer by creating an interactive diorama of the Carleton University campus. 
+3.Connecting your device to your MacBook with a data cable.
 
-## Built With
+4.CLick the "Run" button or press "command + R" to build the app on your device.
 
-* [Swift 5](https://swift.org/) 
-* [Xcode (11.2)](https://developer.apple.com/xcode/)
-* [Reality Composer (1.2)](https://developer.apple.com/augmented-reality/reality-composer/)
+5.Open **Setting**, go to **General** -> **VPN & Device Management**, and trust the application.
 
-## Author
+6.Open the application and allow **using camara** to scan the workspace
 
-[@Elisa Kazan](https://twitter.com/ElisaKazan)
 
-## Acknowledgments
+## Screenshots about the application
 
-* Thank you Prof. Louis Nel for supervising the development of this project.
-* Special thanks to Alun Bestor for helping debug various issues.
-* This project was inspired by the WWDC 2019 talk ["Building AR Experiences with Reality Composer"](https://developer.apple.com/videos/play/wwdc2019/609/)
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_1.jpg?raw=true" width="50%" height="auto">
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true" style="width:5%;height:auto;">
 
-## License
+![example_1](https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_1.jpg?raw=true =200x200)
 
-ARCampus is available under the MIT license. See the LICENSE file for more info.
+<img src="https://github.com/SuperWBY/3801-Project-MLT/blob/main/Screenshots/example_2.jpg?raw=true" alt="Example Image" width="400" style="display:block; margin:auto;">
+
+
+
