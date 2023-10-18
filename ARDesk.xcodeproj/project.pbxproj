@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		125693932AD66664002F8723 /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
 		125693942AD666E0002F8723 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
-		311A64A9238B0C38007CDEF7 /* MalaTang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalaTang.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		311A64A9238B0C38007CDEF7 /* ARDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		311A64AC238B0C38007CDEF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		311A64AE238B0C38007CDEF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		311A64B0238B0C38007CDEF7 /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		311A64AA238B0C38007CDEF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				311A64A9238B0C38007CDEF7 /* MalaTang.app */,
+				311A64A9238B0C38007CDEF7 /* ARDesk.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 			);
 			name = MalaTang;
 			productName = CarletonHonoursProject;
-			productReference = 311A64A9238B0C38007CDEF7 /* MalaTang.app */;
+			productReference = 311A64A9238B0C38007CDEF7 /* ARDesk.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -135,14 +135,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1120;
-				ORGANIZATIONNAME = ElisaKazan;
+				ORGANIZATIONNAME = MalaTang;
 				TargetAttributes = {
 					311A64A8238B0C38007CDEF7 = {
 						CreatedOnToolsVersion = 11.2;
 					};
 				};
 			};
-			buildConfigurationList = 311A64A4238B0C38007CDEF7 /* Build configuration list for PBXProject "ARTable" */;
+			buildConfigurationList = 311A64A4238B0C38007CDEF7 /* Build configuration list for PBXProject "ARDesk" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -334,13 +334,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = MalaTang/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ARTable;
+				INFOPLIST_KEY_CFBundleDisplayName = ARDesk;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fluteya;
-				PRODUCT_NAME = MalaTang;
+				PRODUCT_NAME = ARDesk;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -357,13 +357,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = MalaTang/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ARTable;
+				INFOPLIST_KEY_CFBundleDisplayName = ARDesk;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fluteya;
-				PRODUCT_NAME = MalaTang;
+				PRODUCT_NAME = ARDesk;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -372,7 +372,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		311A64A4238B0C38007CDEF7 /* Build configuration list for PBXProject "ARTable" */ = {
+		311A64A4238B0C38007CDEF7 /* Build configuration list for PBXProject "ARDesk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				311A64BB238B0C3B007CDEF7 /* Debug */,
