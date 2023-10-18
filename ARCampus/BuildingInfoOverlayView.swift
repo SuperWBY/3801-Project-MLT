@@ -8,7 +8,7 @@ class BuildingInfoOverlayView: UIView {
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var foodLabel: UILabel!
     @IBOutlet var floorLabel: UILabel!
-
+    @IBOutlet var input:UITextField!
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         layer.cornerRadius = 14

@@ -54,6 +54,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6q0-8N-JVx" customClass="BuildingInfoOverlayView" customModule="MalaTang" customModuleProvider="target">
                                 <rect key="frame" x="10" y="48" width="394" height="130"/>
                                 <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6bM-z3-mm9">
+                                        <rect key="frame" x="148" y="48" width="97" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDB-NV-5IQ">
                                         <rect key="frame" x="8" y="8" width="251" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -108,7 +114,8 @@
                                     <outlet property="floorLabel" destination="AE2-2Z-8hq" id="oGe-aC-dA3"/>
                                     <outlet property="foodLabel" destination="y8a-Mn-Csr" id="Uo3-pF-xsD"/>
                                     <outlet property="imageView" destination="khX-FJ-sJn" id="Mtb-Hm-1hz"/>
-                                    <outlet property="nameLabel" destination="ZDB-NV-5IQ" id="r3S-K9-vTw"/>
+                                    <outlet property="input" destination="6bM-z3-mm9" id="Nwu-2A-2oX"/>
+                                    <outlet property="nameLabel" destination="ZDB-NV-5IQ" id="ePX-8c-6pE"/>
                                     <outlet property="summaryLabel" destination="Als-Gc-Pqg" id="1IA-WS-kxA"/>
                                 </connections>
                             </view>
@@ -134,7 +141,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="BuildingInfoOverlayView" destination="6q0-8N-JVx" id="coX-A2-ro7"/>
                         <outlet property="arView" destination="eig-Tf-W8d" id="x39-bV-XEC"/>
                         <outlet property="buildingInfoOverlayView" destination="6q0-8N-JVx" id="uH6-gL-uev"/>
                         <outlet property="coachingOverlayView" destination="M0Q-XS-MsT" id="oiR-ad-BZG"/>
