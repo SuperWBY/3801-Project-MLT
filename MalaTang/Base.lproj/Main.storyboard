@@ -12,12 +12,12 @@
         <!--ARView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="BYZ-38-t0r" userLabel="ARView" customClass="ViewController" customModule="MalaTang" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="eig-Tf-W8d" customClass="ARView" customModule="RealityKit">
+                <viewController wantsFullScreenLayout="YES" id="BYZ-38-t0r" userLabel="ARView" customClass="ViewController" customModule="ARDesk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eig-Tf-W8d" customClass="ARView" customModule="RealityKit">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6q0-8N-JVx" userLabel="chat" customClass="Chat" customModule="MalaTang" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6q0-8N-JVx" userLabel="chat" customClass="Chat" customModule="ARDesk" customModuleProvider="target">
                                 <rect key="frame" x="10" y="48" width="394" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-yN-Z2U">
@@ -74,7 +74,7 @@
                                     <outlet property="tableView" destination="4SP-o4-Tod" id="KNv-2g-VuM"/>
                                 </connections>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0Q-XS-MsT" customClass="ARCoachingOverlayView">
+                            <view opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0Q-XS-MsT" customClass="ARCoachingOverlayView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -93,8 +93,8 @@
                     </view>
                     <connections>
                         <outlet property="arView" destination="eig-Tf-W8d" id="x39-bV-XEC"/>
-                        <outlet property="buildingInfoOverlayView" destination="6q0-8N-JVx" id="uH6-gL-uev"/>
                         <outlet property="coachingOverlayView" destination="M0Q-XS-MsT" id="oiR-ad-BZG"/>
+                        <outlet property="tags" destination="6q0-8N-JVx" id="uH6-gL-uev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

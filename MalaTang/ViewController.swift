@@ -5,19 +5,20 @@ import ARKit
 import Foundation
 import Starscream
 
+//establish network connection
 class WebSocketManager: WebSocketDelegate {
     weak var viewController: ViewController!
     private init() {
-        let socketURL = URL(string: "ws://10.89.201.108:3000")!
+        let socketURL = URL(string: "ws://10.89.201.108:3000")!//the ip of the server
         socket = WebSocket(request: URLRequest(url: socketURL))
         socket.delegate = self
         socket.connect()
     }
  
+    /// This method is called when the WebSocket receives an event.
     func didReceive(event: Starscream.WebSocketEvent, client: Starscream.WebSocketClient) {
         switch event {
         case .text(let text):
-            
             NotificationCenter.default.post(name: Notification.Name("NewMessageReceived"), object: text)
         default:
             break
@@ -26,13 +27,13 @@ class WebSocketManager: WebSocketDelegate {
     
     static let shared = WebSocketManager()
     var socket: WebSocket!
-
-   
-
+    
+    ///inform network working
     func websocketDidConnect(socket: WebSocketClient) {
         print("Connected to WebSocket server")
     }
 
+    ///inform network did disconnect
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         if let error = error {
             print("Disconnected from WebSocket server with error: \(error.localizedDescription)")
@@ -41,9 +42,12 @@ class WebSocketManager: WebSocketDelegate {
         }
     }
     
+    /// This method is called when the WebSocket receives an event.
+    ///
+    /// - Parameters:
+    ///   - message: the message sent to server
     func sendMessage(_ message: String) {
         do {
-            
             try socket.write(string: message)
         } catch let error {
             print("Error sending message: \(error)")
@@ -51,27 +55,26 @@ class WebSocketManager: WebSocketDelegate {
     }
 }
 
+///manage the view shown screen
 class ViewController: UIViewController {
-    var SA = ["Insert your username:"]
+    var SA = ["Insert your username:"]//store the tags attached on model, and there is three models so three arrays
     var AT = ["Insert your username:"]
     var PA = ["Insert your username:"]
-    /// The view that displays the real world with virtual objects (i.e. Augmented Reality)
+   
+    /// The Arview
     @IBOutlet var arView: ARView!
     
     /// The view that provides instructions for getting a horizontal plane
     @IBOutlet weak var coachingOverlayView: ARCoachingOverlayView!
     
-    /// The view that displays building information
-    @IBOutlet weak var buildingInfoOverlayView: Chat!
+    /// The view that displays tags added on model
+    @IBOutlet weak var tags: Chat!
     
-    /// The anchor for the DioramaScene from the Reality Composer file
+    /// The anchor for the DioramaScene from the Reality Composer file，and reality composer are used to build a small plane in Arview to show models, and models are also premade in reality composer
     var dioramaAnchorEntity: Experience.DioramaScene?
     
     /// The plane anchor found by coaching overlay
     var horizontalPlaneAnchor: ARAnchor?
-    
-    /// A dictionary of building codes to Building objects
-    
     
     /// A toggle for print statements
     var debugMode = true
@@ -80,25 +83,30 @@ class ViewController: UIViewController {
     var contentIsLoaded = false
     var planeAnchorIsFound = false
     
+    ///ensure the arview successfully load，there are many things need to be done before view successfully load
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        buildingInfoOverlayView.tableView.dataSource=buildingInfoOverlayView.self
-        buildingInfoOverlayView.tableView.delegate=buildingInfoOverlayView.self
-        WebSocketManager.shared.sendMessage("hi")
+        tags.tableView.dataSource=tags.self
+        tags.tableView.delegate=tags.self
+        WebSocketManager.shared.sendMessage("hi")//like a handshake, establish connection to server
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewMessage(_:)), name: Notification.Name("NewMessageReceived"), object: nil)
+        //set up a notifier to notice view to update, when the client receive message from server
     }
+    
+    /// This method is called when receive notification from notifier in view, when client receive message from server, it will run this function
+    /// to update model position and tag content.
     @objc func handleNewMessage(_ notification: Notification) {
         if let text = notification.object as? String {
-        print(text)
+        
         let separatedParts = text.components(separatedBy: ";")
         let type = separatedParts[0]
-           
+           ///if the message receive is about model position
             if type == "Server received: modelposition" {
-                
+                ///basicly large part below just transfer message received from server to the correct format and get userful message like entity name, the updated model position
                 let Entityname = separatedParts[1]
                 let Entityposition = separatedParts[2]
-                
                 var simd3Coordinate: SIMD3<Float>?
                 if let range = Entityposition.range(of: "(") {
                     let startIndex = Entityposition.index(after: range.lowerBound)
@@ -112,43 +120,44 @@ class ViewController: UIViewController {
                         } else {
                             print("error")
                         }
+                        ///simply change position of model, accroding to correct format of model position and model name
                         let select = arView.scene.findEntity(named: Entityname)
-                        
                         select?.transform.translation = simd3Coordinate!
-                        
-                        
                     }
-                    
                 }
             }
+            
+            /// if received message is about tag
             if type == "Server received: tag"    {
                 let Entityname = separatedParts[1]
                 let tag = separatedParts[2]
                 print(tag)
-                var tags = [String]()
-                if buildingInfoOverlayView.username != "" {
+                var tagss = [String]()
+                
+                ///attach tag to specific model according to model name
+                if tags.username != "" {
                     if Entityname == "SA" {
                         SA.append(tag)
-                        tags = SA
+                        tagss = SA
                     } else if Entityname == "AT" {
                         AT.append(tag)
-                        tags = AT
+                        tagss = AT
                     } else {
                         PA.append(tag)
-                        tags = PA
+                        tagss = PA
                     }
-                    buildingInfoOverlayView.updateBuildingInfo(tags: tags,model: Entityname)
+                    ///update tags attached to specific model
+                    tags.updateBuildingInfo(tags: tagss,model: Entityname)
                 }
             }
-            }
+        }
     }
+    
+    /// setup Arview
     func setupView() {
         /// Hide building information view
-        self.buildingInfoOverlayView.isHidden = true
+        self.tags.isHidden = true
         
-        // Load building information to dictionary
-     
-            
         /// Create ARWorldTrackingConfiguration for horizontal planes
         let arConfiguration = ARWorldTrackingConfiguration()
         arConfiguration.planeDetection = .horizontal
@@ -168,6 +177,7 @@ class ViewController: UIViewController {
         presentCoachingOverlay()
     }
     
+    /// This method to handle when screen get touched.
     @IBAction func onTap(_ sender: UITapGestureRecognizer) {
         /// Location that user tapped
         let tapLocation = sender.location(in: arView)
@@ -175,31 +185,31 @@ class ViewController: UIViewController {
         /// Find entity at tapped location and check if valid building (no entity tapped, invalid building code)
         guard let buildingEntity = arView.entity(at: tapLocation), isBuilding(entity: buildingEntity)  else {
             print("Error: Invalid entity found.")
-            hideBuildingOverlayAndArrow()
+            hidetagsAndArrow()
             return
         }
         
-        /// Building codes are two capital letters (ex: UC for University Center)
+        ///show the tags when model be tapped
         let model = buildingEntity.name
-        var tags = [String]()
+        var tagss = [String]()
         if model == "SA" {
-            tags = SA
+            tagss = SA
         } else if model == "AT" {
-            tags = AT
+            tagss = AT
         } else {
-            tags = PA
+            tagss = PA
         }
+        tags.updateBuildingInfo(tags: tagss,model: model)
         
-        buildingInfoOverlayView.updateBuildingInfo(tags: tags,model: model)
         
-        /// Check for valid building code
         /// Move arrow to selected building
         self.highlightSelectedBuilding(buildingEntity: buildingEntity)
         
         /// Update building info overlay view and display
-        self.buildingInfoOverlayView.isHidden = false
+        self.tags.isHidden = false
     }
     
+    /// This method to handle when screen get touched.
     @IBAction func scalePiece(_ gestureRecognizer: UIPinchGestureRecognizer) {
         guard let selectedEntity = arView.entity(at: gestureRecognizer.location(in: arView)),
               isBuilding(entity: selectedEntity) else {
@@ -217,6 +227,7 @@ class ViewController: UIViewController {
         }
     }
     
+    /// This method is used to move model
     @objc func handlePan(_ sender: UIPanGestureRecognizer) {
         guard let selectedEntity = arView.entity(at: sender.location(in: arView)),
               isBuilding(entity: selectedEntity) else {
@@ -226,25 +237,23 @@ class ViewController: UIViewController {
         let translation = sender.translation(in: arView)
 
         if sender.state == .began || sender.state == .changed || sender.state == .ended {
-            // 获取选中的建筑实体的当前位置
+            // get the current position of model
             var currentPosition = selectedEntity.transform.translation
-            // 根据平移手势的移动来更新位置
+            //Update the current position based on the movement of the pan gesture
             currentPosition.x += Float(translation.x) / Float(arView.frame.size.width)
             currentPosition.y -= Float(translation.y) / Float(arView.frame.size.height)
             
-            // 更新建筑实体的位置
-            
+            // Update the model position
             selectedEntity.transform.translation = currentPosition
-            // print(currentPosition)
             sender.setTranslation(CGPoint.zero, in: arView)
             if sender.state == .ended {
-                //当模型停止移动时，发送位置信息，然后server接到信息会广播到所有设备
+                //when model stop move, it will send the model position to server
                 WebSocketManager.shared.sendMessage("modelposition;\(selectedEntity.name);\(String(describing: currentPosition))")
             }
         }
     }
     
-    
+    /// This method is used to rotated model
     @IBAction func handleRotation(_ gestureRecognizer: UIRotationGestureRecognizer) {
         guard let selectedEntity = arView.entity(at: gestureRecognizer.location(in: arView)),
               isBuilding(entity: selectedEntity) else {
@@ -266,7 +275,7 @@ class ViewController: UIViewController {
     }
 
     
-    /// Check if entity is a valid building
+    /// Check if entity is a valid model
     func isBuilding(entity: Entity) -> Bool {
         return entity.name == "SA" || entity.name == "AT" || entity.name == "PA"
     }
@@ -279,19 +288,16 @@ class ViewController: UIViewController {
                     if debugMode {
                         print("Building: \(buildingEntity.name)")
                     }
-                    
                     guard let arrowBlockEntity = buildingEntity.findEntity(named: Strings.arrowBlock) else {
                         print("Error: Cannot find ArrowBlock for \(buildingEntity.name) entity")
                         continue
                     }
-                    
                     /// Instead of disabling the arrowBlock, disable its ModelEntity
                     /// This hides the visual model but keeps the model enabled
                     guard let childModelEntity = arrowBlockEntity.findEntity(named: "simpBld_root") else {
                         print("Error: Cannot find simpBld_root entity.")
                         return
                     }
-                    
                     childModelEntity.isEnabled = false
                 }
             }
@@ -324,9 +330,10 @@ class ViewController: UIViewController {
         }
     }
     
-    func hideBuildingOverlayAndArrow() {
+    /// This method is used to hide tags UI
+    func hidetagsAndArrow() {
         /// Hide Building Overlay
-        self.buildingInfoOverlayView.isHidden = true
+        self.tags.isHidden = true
         
         /// Hide arrow
         guard let dioramaAnchor = self.dioramaAnchorEntity else {
@@ -380,8 +387,8 @@ class ViewController: UIViewController {
         }
     }
     
+    /// Prevent device from sleeping during idle coaching (coaching phase may take a while and typically expects no touch events)
     func presentCoachingOverlay() {
-        /// Prevent device from sleeping during idle coaching (coaching phase may take a while and typically expects no touch events)
         UIApplication.shared.isIdleTimerDisabled = true
         
         coachingOverlayView.session = arView.session
@@ -392,8 +399,8 @@ class ViewController: UIViewController {
         self.coachingOverlayView.setActive(true, animated: true)
     }
     
+    /// remove Coaching Overlay
     func removeCoachingOverlay() {
-        /// No longer need to prevent sleeping as touch events are expected
         UIApplication.shared.isIdleTimerDisabled = false
         
         coachingOverlayView.delegate = nil
@@ -401,6 +408,7 @@ class ViewController: UIViewController {
         coachingOverlayView.removeFromSuperview()
     }
     
+    ///place diorama view in the screen
     func placeDioramaInWorld() {
         /// Check that both conditions are met
         if !contentIsLoaded || !planeAnchorIsFound {
@@ -489,7 +497,4 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    /// Parses building data from JSON file and populates buildings dictionary
-    
 }
