@@ -2,7 +2,7 @@ import websockets
 import asyncio
 
 connected_clients = set()
-server_ip = "192.168.68.58" #输入本地的IP
+server_ip = "192.168.68.53" #输入本地的IP
 server_port = 3000  
 
 async def echo(websocket, path):
@@ -13,8 +13,7 @@ async def echo(websocket, path):
                 print(f"Received message from client: {message}")
                 respons = f"Server received: {message}"
                 for client in connected_clients:
-                    if client != websocket:
-                        await client.send(response) 
+                    await client.send(respons) 
                    
                
     except websockets.exceptions.ConnectionClosed:

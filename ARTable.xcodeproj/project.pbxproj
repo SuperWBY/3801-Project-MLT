@@ -17,9 +17,7 @@
 		311A64B9238B0C3B007CDEF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311A64B7238B0C3B007CDEF7 /* LaunchScreen.storyboard */; };
 		311A64C1238B1683007CDEF7 /* ViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A64C0238B1683007CDEF7 /* ViewController+Delegate.swift */; };
 		311A64C3238B1968007CDEF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A64C2238B1968007CDEF7 /* Constants.swift */; };
-		3173BFF223931C5400BA75AF /* BuildingInfoOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173BFF123931C5300BA75AF /* BuildingInfoOverlayView.swift */; };
-		31FCA5BB2391AE1900276D3C /* buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 31FCA5BA2391AE1900276D3C /* buildings.json */; };
-		31FCA5BD2391AE5100276D3C /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA5BC2391AE5100276D3C /* Building.swift */; };
+		3173BFF223931C5400BA75AF /* chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173BFF123931C5300BA75AF /* chat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,9 +47,7 @@
 		311A64BA238B0C3B007CDEF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		311A64C0238B1683007CDEF7 /* ViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Delegate.swift"; sourceTree = "<group>"; };
 		311A64C2238B1968007CDEF7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3173BFF123931C5300BA75AF /* BuildingInfoOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingInfoOverlayView.swift; sourceTree = "<group>"; };
-		31FCA5BA2391AE1900276D3C /* buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buildings.json; sourceTree = "<group>"; };
-		31FCA5BC2391AE5100276D3C /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		3173BFF123931C5300BA75AF /* chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +75,7 @@
 		311A64A0238B0C38007CDEF7 = {
 			isa = PBXGroup;
 			children = (
-				311A64AB238B0C38007CDEF7 /* ARCampus */,
+				311A64AB238B0C38007CDEF7 /* MalaTang */,
 				311A64AA238B0C38007CDEF7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,16 +88,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		311A64AB238B0C38007CDEF7 /* ARCampus */ = {
+		311A64AB238B0C38007CDEF7 /* MalaTang */ = {
 			isa = PBXGroup;
 			children = (
 				311A64AC238B0C38007CDEF7 /* AppDelegate.swift */,
 				311A64AE238B0C38007CDEF7 /* ViewController.swift */,
-				3173BFF123931C5300BA75AF /* BuildingInfoOverlayView.swift */,
+				3173BFF123931C5300BA75AF /* chat.swift */,
 				311A64C0238B1683007CDEF7 /* ViewController+Delegate.swift */,
 				311A64C2238B1968007CDEF7 /* Constants.swift */,
-				31FCA5BC2391AE5100276D3C /* Building.swift */,
-				31FCA5BA2391AE1900276D3C /* buildings.json */,
 				311A64B0238B0C38007CDEF7 /* Experience.rcproject */,
 				311A64B2238B0C38007CDEF7 /* Main.storyboard */,
 				311A64B5238B0C3B007CDEF7 /* Assets.xcassets */,
@@ -109,7 +103,7 @@
 				311A64BA238B0C3B007CDEF7 /* Info.plist */,
 				125693922AD66664002F8723 /* Frameworks */,
 			);
-			path = ARCampus;
+			path = MalaTang;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +142,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 311A64A4238B0C38007CDEF7 /* Build configuration list for PBXProject "MalaTang" */;
+			buildConfigurationList = 311A64A4238B0C38007CDEF7 /* Build configuration list for PBXProject "ARTable" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -174,7 +168,6 @@
 				311A64B9238B0C3B007CDEF7 /* LaunchScreen.storyboard in Resources */,
 				311A64B6238B0C3B007CDEF7 /* Assets.xcassets in Resources */,
 				311A64B4238B0C38007CDEF7 /* Main.storyboard in Resources */,
-				31FCA5BB2391AE1900276D3C /* buildings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,8 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311A64C3238B1968007CDEF7 /* Constants.swift in Sources */,
-				31FCA5BD2391AE5100276D3C /* Building.swift in Sources */,
-				3173BFF223931C5400BA75AF /* BuildingInfoOverlayView.swift in Sources */,
+				3173BFF223931C5400BA75AF /* chat.swift in Sources */,
 				311A64AF238B0C38007CDEF7 /* ViewController.swift in Sources */,
 				311A64C1238B1683007CDEF7 /* ViewController+Delegate.swift in Sources */,
 				311A64AD238B0C38007CDEF7 /* AppDelegate.swift in Sources */,
@@ -341,8 +333,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ARCampus/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MalaTang;
+				INFOPLIST_FILE = MalaTang/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ARTable;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,8 +356,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ARCampus/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MalaTang;
+				INFOPLIST_FILE = MalaTang/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ARTable;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,7 +372,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		311A64A4238B0C38007CDEF7 /* Build configuration list for PBXProject "MalaTang" */ = {
+		311A64A4238B0C38007CDEF7 /* Build configuration list for PBXProject "ARTable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				311A64BB238B0C3B007CDEF7 /* Debug */,

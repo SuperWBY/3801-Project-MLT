@@ -8,7 +8,7 @@ import Starscream
 class WebSocketManager: WebSocketDelegate {
     weak var viewController: ViewController!
     private init() {
-        let socketURL = URL(string: "ws://10.89.200.115:3000")!
+        let socketURL = URL(string: "ws://10.89.201.108:3000")!
         socket = WebSocket(request: URLRequest(url: socketURL))
         socket.delegate = self
         socket.connect()
@@ -17,6 +17,7 @@ class WebSocketManager: WebSocketDelegate {
     func didReceive(event: Starscream.WebSocketEvent, client: Starscream.WebSocketClient) {
         switch event {
         case .text(let text):
+            
             NotificationCenter.default.post(name: Notification.Name("NewMessageReceived"), object: text)
         default:
             break
@@ -51,6 +52,9 @@ class WebSocketManager: WebSocketDelegate {
 }
 
 class ViewController: UIViewController {
+    var SA = ["Insert your username:"]
+    var AT = ["Insert your username:"]
+    var PA = ["Insert your username:"]
     /// The view that displays the real world with virtual objects (i.e. Augmented Reality)
     @IBOutlet var arView: ARView!
     
@@ -58,7 +62,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var coachingOverlayView: ARCoachingOverlayView!
     
     /// The view that displays building information
-    @IBOutlet weak var buildingInfoOverlayView: BuildingInfoOverlayView!
+    @IBOutlet weak var buildingInfoOverlayView: Chat!
     
     /// The anchor for the DioramaScene from the Reality Composer file
     var dioramaAnchorEntity: Experience.DioramaScene?
@@ -67,7 +71,7 @@ class ViewController: UIViewController {
     var horizontalPlaneAnchor: ARAnchor?
     
     /// A dictionary of building codes to Building objects
-    var buildings = [String: Building]()
+    
     
     /// A toggle for print statements
     var debugMode = true
@@ -79,48 +83,71 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        buildingInfoOverlayView.tableView.dataSource=buildingInfoOverlayView.self
+        buildingInfoOverlayView.tableView.delegate=buildingInfoOverlayView.self
+        WebSocketManager.shared.sendMessage("hi")
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewMessage(_:)), name: Notification.Name("NewMessageReceived"), object: nil)
     }
     @objc func handleNewMessage(_ notification: Notification) {
-        if let text = notification.object as? String{
-       
+        if let text = notification.object as? String {
+        print(text)
         let separatedParts = text.components(separatedBy: ";")
         let type = separatedParts[0]
            
             if type == "Server received: modelposition" {
-               
-        let Entityname = separatedParts[1]
-        let Entityposition = separatedParts[2]
-      
-        var simd3Coordinate: SIMD3<Float>?
-            if let range = Entityposition.range(of: "(") {
-                let startIndex = Entityposition.index(after: range.lowerBound)
-                if let endIndex = Entityposition.range(of: ")", options: .backwards)?.lowerBound {
-                    let valuesString = Entityposition[startIndex..<endIndex].replacingOccurrences(of: " ", with: "")
-                    let values = valuesString.split(separator: ",").compactMap { Float($0) }
-                    
-                    if values.count == 3 {
-                        simd3Coordinate = SIMD3<Float>(values[0], values[1], values[2])
+                
+                let Entityname = separatedParts[1]
+                let Entityposition = separatedParts[2]
+                
+                var simd3Coordinate: SIMD3<Float>?
+                if let range = Entityposition.range(of: "(") {
+                    let startIndex = Entityposition.index(after: range.lowerBound)
+                    if let endIndex = Entityposition.range(of: ")", options: .backwards)?.lowerBound {
+                        let valuesString = Entityposition[startIndex..<endIndex].replacingOccurrences(of: " ", with: "")
+                        let values = valuesString.split(separator: ",").compactMap { Float($0) }
                         
-                    } else {
-                        print("error")
+                        if values.count == 3 {
+                            simd3Coordinate = SIMD3<Float>(values[0], values[1], values[2])
+                            
+                        } else {
+                            print("error")
+                        }
+                        let select = arView.scene.findEntity(named: Entityname)
+                        
+                        select?.transform.translation = simd3Coordinate!
+                        
+                        
                     }
-                    let select = arView.scene.findEntity(named: Entityname)
-                    
-                    select?.transform.translation = simd3Coordinate!
-
                     
                 }
-                    
-                }}
-    }
+            }
+            if type == "Server received: tag"    {
+                let Entityname = separatedParts[1]
+                let tag = separatedParts[2]
+                print(tag)
+                var tags = [String]()
+                if buildingInfoOverlayView.username != "" {
+                    if Entityname == "SA" {
+                        SA.append(tag)
+                        tags = SA
+                    } else if Entityname == "AT" {
+                        AT.append(tag)
+                        tags = AT
+                    } else {
+                        PA.append(tag)
+                        tags = PA
+                    }
+                    buildingInfoOverlayView.updateBuildingInfo(tags: tags,model: Entityname)
+                }
+            }
+            }
     }
     func setupView() {
         /// Hide building information view
         self.buildingInfoOverlayView.isHidden = true
         
         // Load building information to dictionary
-        loadJSONData()
+     
             
         /// Create ARWorldTrackingConfiguration for horizontal planes
         let arConfiguration = ARWorldTrackingConfiguration()
@@ -153,24 +180,23 @@ class ViewController: UIViewController {
         }
         
         /// Building codes are two capital letters (ex: UC for University Center)
-        let buildingCode = buildingEntity.name
-        
-        if debugMode {
-            print("Tapped building \(buildingCode)")
+        let model = buildingEntity.name
+        var tags = [String]()
+        if model == "SA" {
+            tags = SA
+        } else if model == "AT" {
+            tags = AT
+        } else {
+            tags = PA
         }
-
+        
+        buildingInfoOverlayView.updateBuildingInfo(tags: tags,model: model)
+        
         /// Check for valid building code
-        guard let building = buildings[buildingCode] else {
-            print("Error: Invalid building code, no building found.")
-            hideBuildingOverlayAndArrow()
-            return
-        }
-        
         /// Move arrow to selected building
         self.highlightSelectedBuilding(buildingEntity: buildingEntity)
         
         /// Update building info overlay view and display
-        self.buildingInfoOverlayView.updateBuildingInfo(building: building, buildingCode: buildingCode)
         self.buildingInfoOverlayView.isHidden = false
     }
     
@@ -242,7 +268,7 @@ class ViewController: UIViewController {
     
     /// Check if entity is a valid building
     func isBuilding(entity: Entity) -> Bool {
-        return buildings[entity.name] != nil
+        return entity.name == "SA" || entity.name == "AT" || entity.name == "PA"
     }
     
     /// Loops over all ArrowBlocks and hides them
@@ -465,25 +491,5 @@ class ViewController: UIViewController {
     }
     
     /// Parses building data from JSON file and populates buildings dictionary
-    func loadJSONData() {
-        /// Get url for JSON file
-        guard let url = Bundle.main.url(forResource: "buildings", withExtension: "json") else {
-            fatalError("Error: Unable to find buildings JSON in bundle")
-        }
-        
-        /// Load JSON data
-        guard let data = try? Data(contentsOf: url) else {
-            fatalError("Error: Unable to load JSON")
-        }
-        
-        let decoder = JSONDecoder()
-        
-        /// Decode the JSON data into a dictionary
-        guard let loadedBuildings = try? decoder.decode([String: Building].self, from: data) else {
-            fatalError("Error: Unable to parse JSON")
-        }
-        
-        /// Save buildings
-        buildings = loadedBuildings
-    }
+    
 }
