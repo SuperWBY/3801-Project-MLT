@@ -40,6 +40,15 @@ In the context of today's rapid technological advancement, mixed reality technol
    can add tags, move, rotate and zoom in or out on model. Also, Model positions and tag 
    content can be synchronized between two devices
 
+## Open Source Used
+
+The framework comes from [ARCampus](https://github.com/ElisaKazan/ARCampus/tree/master) written by [@Elisa Kazan](https://twitter.com/ElisaKazan), it contains basic AR function, what we changed are following functions:
+
+* AppDelegate.swift: We delete the irrelevant part and only keep useful part
+* ViewController.swift: We delete the irrelevant part, and add our own function: WebSocketManager, add gestures to respond user's operation, connect other files to ensure functionality
+* Chat.swift: This file implements functions on communication between users. 
+* ViewController+Delegate.swift: We delete the irrelevant part and only keep useful part
+
 ## Screenshots about the application
 
 <center>
