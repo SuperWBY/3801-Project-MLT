@@ -1,6 +1,14 @@
+//
+//  Constants.swift
+//
+//  Created by Team MalaTang
+//  Some code were from Elisa Kazan on 2019-11-24.
+//  GitHub link: https://github.com/ElisaKazan/ARCampus/tree/master
+//
+
 import Foundation
 import CoreGraphics
-//Some codes were from “https://github.com/ElisaKazan/ARCampus/tree/master”
+
 enum Constants {
     static let minAnchorDistance: CGFloat = 0.5
     static let maxAnchorDistance: CGFloat = 2.0

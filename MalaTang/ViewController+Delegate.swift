@@ -1,5 +1,13 @@
+//
+//  ViewController+Delegate.swift
+//
+//  Created by Team MalaTang
+//  Some code were from Elisa Kazan on 2019-11-24.
+//  GitHub link: https://github.com/ElisaKazan/ARCampus/tree/master
+//
+
 import ARKit
-//Some codes were from “https://github.com/ElisaKazan/ARCampus/tree/master”
+
 extension ViewController: ARCoachingOverlayViewDelegate {
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
         

@@ -1,5 +1,13 @@
+//
+//  AppDelegate.swift
+//
+//  Created by Team MalaTang
+//  Some code were from Elisa Kazan on 2019-11-24.
+//  GitHub link: https://github.com/ElisaKazan/ARCampus/tree/master
+//
+
 import UIKit
-//Some codes were from “https://github.com/ElisaKazan/ARCampus/tree/master”
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

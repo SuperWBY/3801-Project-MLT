@@ -1,11 +1,17 @@
+//
+//  ViewController.swift
+//
+//  Created by Team MalaTang
+//  Some code were from Elisa Kazan on 2019-11-24.
+//  GitHub link: https://github.com/ElisaKazan/ARCampus/tree/master
+//
+
 import UIKit
 import RealityKit
 import ARKit
-
 import Foundation
 import Starscream
 
-//Some codes were from “https://github.com/ElisaKazan/ARCampus/tree/master”
 //establish network connection
 class WebSocketManager: WebSocketDelegate {
     weak var viewController: ViewController!

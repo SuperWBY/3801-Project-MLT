@@ -1,6 +1,12 @@
+//
+//  Chat.swift
+//
+//  Created by Team MalaTang
+//
+
 import UIKit
 
-/// View that displays model information
+/// UIview that displays model information
 class Chat: UIView, UITableViewDataSource, UITableViewDelegate {
     var tableData = ["Insert your username:"]
     var modeltype = ""
