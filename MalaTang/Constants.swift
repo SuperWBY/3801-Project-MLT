@@ -1,6 +1,6 @@
 import Foundation
 import CoreGraphics
-
+//Some codes were from “https://github.com/ElisaKazan/ARCampus/tree/master”
 enum Constants {
     static let minAnchorDistance: CGFloat = 0.5
     static let maxAnchorDistance: CGFloat = 2.0

@@ -1,5 +1,5 @@
 import UIKit
-
+//Some codes were from “https://github.com/ElisaKazan/ARCampus/tree/master”
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

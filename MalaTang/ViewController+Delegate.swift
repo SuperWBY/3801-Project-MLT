@@ -1,5 +1,5 @@
 import ARKit
-
+//Some codes were from “https://github.com/ElisaKazan/ARCampus/tree/master”
 extension ViewController: ARCoachingOverlayViewDelegate {
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
         

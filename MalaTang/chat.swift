@@ -47,5 +47,4 @@ class Chat: UIView, UITableViewDataSource, UITableViewDelegate {
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
       //  print("update once")
     }
-    // 其他 Chat 类的实现部分
 }

@@ -5,6 +5,7 @@ import ARKit
 import Foundation
 import Starscream
 
+//Some codes were from “https://github.com/ElisaKazan/ARCampus/tree/master”
 //establish network connection
 class WebSocketManager: WebSocketDelegate {
     weak var viewController: ViewController!
