@@ -17,7 +17,7 @@
 		311A64B9238B0C3B007CDEF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311A64B7238B0C3B007CDEF7 /* LaunchScreen.storyboard */; };
 		311A64C1238B1683007CDEF7 /* ViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A64C0238B1683007CDEF7 /* ViewController+Delegate.swift */; };
 		311A64C3238B1968007CDEF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A64C2238B1968007CDEF7 /* Constants.swift */; };
-		3173BFF223931C5400BA75AF /* chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173BFF123931C5300BA75AF /* chat.swift */; };
+		3173BFF223931C5400BA75AF /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173BFF123931C5300BA75AF /* Chat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +47,7 @@
 		311A64BA238B0C3B007CDEF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		311A64C0238B1683007CDEF7 /* ViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Delegate.swift"; sourceTree = "<group>"; };
 		311A64C2238B1968007CDEF7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3173BFF123931C5300BA75AF /* chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat.swift; sourceTree = "<group>"; };
+		3173BFF123931C5300BA75AF /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 			children = (
 				1260E3112AE0EF61008E2A0F /* AppDelegate.swift */,
 				311A64AE238B0C38007CDEF7 /* ViewController.swift */,
-				3173BFF123931C5300BA75AF /* chat.swift */,
+				3173BFF123931C5300BA75AF /* Chat.swift */,
 				311A64C0238B1683007CDEF7 /* ViewController+Delegate.swift */,
 				311A64C2238B1968007CDEF7 /* Constants.swift */,
 				311A64B0238B0C38007CDEF7 /* Experience.rcproject */,
@@ -180,7 +180,7 @@
 			files = (
 				1260E3122AE0EF61008E2A0F /* AppDelegate.swift in Sources */,
 				311A64C3238B1968007CDEF7 /* Constants.swift in Sources */,
-				3173BFF223931C5400BA75AF /* chat.swift in Sources */,
+				3173BFF223931C5400BA75AF /* Chat.swift in Sources */,
 				311A64AF238B0C38007CDEF7 /* ViewController.swift in Sources */,
 				311A64C1238B1683007CDEF7 /* ViewController+Delegate.swift in Sources */,
 				311A64B1238B0C38007CDEF7 /* Experience.rcproject in Sources */,
