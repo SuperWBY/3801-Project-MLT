@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		125693952AD666E0002F8723 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125693942AD666E0002F8723 /* Starscream.framework */; };
 		125693962AD666E0002F8723 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 125693942AD666E0002F8723 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		311A64AD238B0C38007CDEF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A64AC238B0C38007CDEF7 /* AppDelegate.swift */; };
+		1260E3102AE0E06A008E2A0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260E30F2AE0E06A008E2A0F /* AppDelegate.swift */; };
 		311A64AF238B0C38007CDEF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A64AE238B0C38007CDEF7 /* ViewController.swift */; };
 		311A64B1238B0C38007CDEF7 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 311A64B0238B0C38007CDEF7 /* Experience.rcproject */; };
 		311A64B4238B0C38007CDEF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311A64B2238B0C38007CDEF7 /* Main.storyboard */; };
@@ -37,8 +37,8 @@
 /* Begin PBXFileReference section */
 		125693932AD66664002F8723 /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
 		125693942AD666E0002F8723 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
+		1260E30F2AE0E06A008E2A0F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../../../.Trash/AppDelegate.swift; sourceTree = "<group>"; };
 		311A64A9238B0C38007CDEF7 /* ARDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		311A64AC238B0C38007CDEF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		311A64AE238B0C38007CDEF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		311A64B0238B0C38007CDEF7 /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
 		311A64B3238B0C38007CDEF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		311A64AB238B0C38007CDEF7 /* MalaTang */ = {
 			isa = PBXGroup;
 			children = (
-				311A64AC238B0C38007CDEF7 /* AppDelegate.swift */,
+				1260E30F2AE0E06A008E2A0F /* AppDelegate.swift */,
 				311A64AE238B0C38007CDEF7 /* ViewController.swift */,
 				3173BFF123931C5300BA75AF /* chat.swift */,
 				311A64C0238B1683007CDEF7 /* ViewController+Delegate.swift */,
@@ -178,11 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1260E3102AE0E06A008E2A0F /* AppDelegate.swift in Sources */,
 				311A64C3238B1968007CDEF7 /* Constants.swift in Sources */,
 				3173BFF223931C5400BA75AF /* chat.swift in Sources */,
 				311A64AF238B0C38007CDEF7 /* ViewController.swift in Sources */,
 				311A64C1238B1683007CDEF7 /* ViewController+Delegate.swift in Sources */,
-				311A64AD238B0C38007CDEF7 /* AppDelegate.swift in Sources */,
 				311A64B1238B0C38007CDEF7 /* Experience.rcproject in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +328,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8J7H32AR6W;
+				DEVELOPMENT_TEAM = ARSKM4DDZW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -351,7 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8J7H32AR6W;
+				DEVELOPMENT_TEAM = ARSKM4DDZW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

@@ -6,8 +6,6 @@ extension ViewController: ARCoachingOverlayViewDelegate {
         if debugMode {
             print("STATE - coachingOverlayViewWillActivate()")
         }
-                
-        /// Ask the user to gather more data before placing the game into the scene
         /// Dispatch to keep camera working during coaching overlay
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             /// Set the view controller as the delegate of the session to get updates per-frame
@@ -81,6 +79,7 @@ extension ViewController: ARSessionDelegate {
         }
     }
     
+    // make a 4x4 matrix become a normalized 4x4 matrix.
     func normalizeMatrix(_ matrix: float4x4) -> float4x4 {
         var normalized = matrix
         normalized.columns.0 = simd.normalize(normalized.columns.0)

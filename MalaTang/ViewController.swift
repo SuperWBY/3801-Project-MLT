@@ -9,7 +9,7 @@ import Starscream
 class WebSocketManager: WebSocketDelegate {
     weak var viewController: ViewController!
     private init() {
-        let socketURL = URL(string: "ws://10.89.201.108:3000")!//the ip of the server
+        let socketURL = URL(string: "ws://192.168.68.61:3000")!//the ip of the server
         socket = WebSocket(request: URLRequest(url: socketURL))
         socket.delegate = self
         socket.connect()
@@ -304,31 +304,7 @@ class ViewController: UIViewController {
         }
     }
     
-    /// Function for debugging purposes only, visually displays the entity hierarchy from the DioramaScene
-    func printSceneHierarchy(diorama: Experience.DioramaScene) {
-        print("Printing hierarchy for diorama...")
-        
-        for level1ChildEntity in diorama.children {
-            print("Level 1 Child: \(level1ChildEntity.name)")
-            
-            for level2ChildEntity in level1ChildEntity.children {
-                print("  Level 2 Child: \(level2ChildEntity.name)")
-                
-                for level3ChildEntity in level2ChildEntity.children {
-                    print("    Level 3 Child: \(level3ChildEntity.name)")
-                    
-                    for level4ChildEntity in level3ChildEntity.children {
-                        print("      Level 4 Child: \(level4ChildEntity.name)")
-                        
-                        for level5ChildEntity in level4ChildEntity.children {
-                            print("        Level 5 Child: \(level5ChildEntity.name)")
-                            
-                        }
-                    }
-                }
-            }
-        }
-    }
+    
     
     /// This method is used to hide tags UI
     func hidetagsAndArrow() {
